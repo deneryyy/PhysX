@@ -1,0 +1,3 @@
+.cache/
+physx/bin/*
+physx/install/*
