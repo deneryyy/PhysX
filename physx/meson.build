@@ -7,7 +7,6 @@ sdkIncludes = inc.stdout().strip().split('\n')
 
 src = run_command('src_grabber.sh', check: true)
 sources = src.stdout().strip().split('\n')
-message('sources: ', sources)
 
 physxsdk = static_library('physx', 
   sources : sources, 
@@ -36,10 +35,9 @@ snippetSources = src.stdout().strip().split('\n')
 
 glewDep = dependency('glew', required: true)
 
+# Hello world snippet to test if sdk works. No render support cuz my system doesn't support cuda.
 helloWorld = static_library('physx_hello_world', 
   sources: [
-    #'snippets/snippetdeformablevolume/SnippetDeformableVolume.cpp', 
-    #'snippets/snippetdeformablevolume/SnippetDeformableVolumeRender.cpp',
     'snippets/snippethelloworld/SnippetHelloWorld.cpp', 
     'snippets/snippethelloworld/SnippetHelloWorldRender.cpp', 
     #'snippets/snippetrender/SnippetRender.cpp',
